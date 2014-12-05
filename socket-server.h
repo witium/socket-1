@@ -6,6 +6,8 @@ struct rbuffer {
 	char * buffer;
 };
 
+void rbuffer_free(struct rbuffer *rb);
+
 typedef void (*onmessage)(int id,struct rbuffer *rb);
 typedef void (*onconnect)(int id);
 typedef void (*onstart)(int id,int openid);
