@@ -431,7 +431,14 @@ rbuffer_new(int size) {
 
 void 
 rbuffer_free(struct rbuffer *rb) {
-
+	struct rbuffer * current = rb;
+	struct rbuffer * next = current;
+	while(next != NULL) {
+		current = next;
+		struct rbuffer * next = next->next;
+		free(current->buffer);
+		free(current);
+	}
 }
 
 #define MINSIZE 64
